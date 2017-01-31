@@ -130,6 +130,11 @@ class BingMap extends Map {
         }
     }
 
+    // Use focusOnMarker instead, this one is for retro compat
+    clickOnMarker(markerId) {
+        this.focusOnMarker(markerId);
+    }
+
     focusOnMarker(markerId) {
         markerId = markerId.toString();
         let marker = this.markers.filter((marker) => {
@@ -139,6 +144,8 @@ class BingMap extends Map {
         if (marker.length) {
             Microsoft.Maps.Events.invoke(marker[0], 'click', {});
         }
+
+        this.setZoom(16);
     }
 
     getDirections(origin, destination, options, callback, onError) {
