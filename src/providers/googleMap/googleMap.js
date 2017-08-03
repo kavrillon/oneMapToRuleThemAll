@@ -188,6 +188,8 @@ class GoogleMap extends Map {
     }
 
     addMarkers(points, clusterIndex = null, clusterConfig = null) {
+        let index = this.markers.length;
+
         if (Object.prototype.toString.call(points) !== '[object Array]') {
             points = [points];
         }
@@ -209,6 +211,8 @@ class GoogleMap extends Map {
             if (typeof options.activeCluster === 'undefined' || options.activeCluster === null) {
                 options.activeCluster = this.options.activeCluster;
             }
+
+            options.index = index + i;
 
             points[i].options = options;
 

@@ -273,6 +273,8 @@
 	            var clusterIndex = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
 	            var clusterConfig = arguments.length <= 2 || arguments[2] === undefined ? null : arguments[2];
 
+	            var index = this.markers.length;
+
 	            if (Object.prototype.toString.call(points) !== '[object Array]') {
 	                points = [points];
 	            }
@@ -294,6 +296,8 @@
 	                if (typeof options.activeCluster === 'undefined' || options.activeCluster === null) {
 	                    options.activeCluster = _this3.options.activeCluster;
 	                }
+
+	                options.index = index + i;
 
 	                points[i].options = options;
 
@@ -1089,7 +1093,6 @@
 	            zIndex: point.id,
 	            draggable: options.draggable || false
 	        };
-	        console.log('point.id: ' + point.id);
 
 	        if (options.icon) {
 	            objectAssign(marker, {
@@ -1105,6 +1108,8 @@
 	                map: map,
 	                position: this.getPosition()
 	            }, point, options.label);
+	            console.log('zIndex: ' + options.index);
+	            this.zIndex = options.index;
 	        }
 
 	        if (marker.draggable) {
