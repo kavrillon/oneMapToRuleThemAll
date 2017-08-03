@@ -11,6 +11,7 @@ class Marker extends google.maps.Marker {
             zIndex: point.id,
             draggable: options.draggable || false
         };
+        console.log('point.id: ' + point.id);
 
         if (options.icon) {
             objectAssign(marker, {
