@@ -9,7 +9,7 @@ class Marker extends google.maps.Marker {
         let marker = {
             position: new google.maps.LatLng(point.latitude, point.longitude),
             map: map,
-            zIndex: parseInt(options.index),
+            label: '' + options.index,
             draggable: options.draggable || false
         };
 
@@ -21,13 +21,6 @@ class Marker extends google.maps.Marker {
 
         super(marker);
         this.id = point.id;
-
-        if (options.label) {
-            this.label = new Label({
-                map: map,
-                position: this.getPosition()
-            }, point, options.label);
-        }
 
         if (marker.draggable) {
             google.maps.event.addListener(this, 'drag', (event) => {

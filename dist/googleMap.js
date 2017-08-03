@@ -1091,7 +1091,7 @@
 	        var marker = {
 	            position: new google.maps.LatLng(point.latitude, point.longitude),
 	            map: map,
-	            zIndex: parseInt(options.index),
+	            label: '' + options.index,
 	            draggable: options.draggable || false
 	        };
 
@@ -1103,13 +1103,6 @@
 
 	        _get(Object.getPrototypeOf(Marker.prototype), 'constructor', this).call(this, marker);
 	        this.id = point.id;
-
-	        if (options.label) {
-	            this.label = new Label({
-	                map: map,
-	                position: this.getPosition()
-	            }, point, options.label);
-	        }
 
 	        if (marker.draggable) {
 	            google.maps.event.addListener(this, 'drag', function (event) {
