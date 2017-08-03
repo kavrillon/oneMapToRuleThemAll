@@ -212,7 +212,7 @@ class GoogleMap extends Map {
                 options.activeCluster = this.options.activeCluster;
             }
 
-            options.index = index + i;
+            options.index = parseInt(index + i);
 
             points[i].options = options;
 
