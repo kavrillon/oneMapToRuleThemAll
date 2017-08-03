@@ -8,6 +8,7 @@ class Marker extends google.maps.Marker {
         let marker = {
             position: new google.maps.LatLng(point.latitude, point.longitude),
             map: map,
+            zIndex: point.id,
             draggable: options.draggable || false
         };
 
