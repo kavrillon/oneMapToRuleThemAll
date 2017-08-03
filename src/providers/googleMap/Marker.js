@@ -5,9 +5,11 @@ let Label = require('./Label');
 
 class Marker extends google.maps.Marker {
     constructor(map, point, options) {
+        console.log('zIndex: ' + options.index);
         let marker = {
             position: new google.maps.LatLng(point.latitude, point.longitude),
             map: map,
+            zIndex: parseInt(options.index),
             draggable: options.draggable || false
         };
 
@@ -25,8 +27,6 @@ class Marker extends google.maps.Marker {
                 map: map,
                 position: this.getPosition()
             }, point, options.label);
-            console.log('zIndex: ' + options.index);
-            this.zIndex = parseInt(options.index);
         }
 
         if (marker.draggable) {

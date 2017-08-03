@@ -1087,9 +1087,11 @@
 
 	        _classCallCheck(this, Marker);
 
+	        console.log('zIndex: ' + options.index);
 	        var marker = {
 	            position: new google.maps.LatLng(point.latitude, point.longitude),
 	            map: map,
+	            zIndex: parseInt(options.index),
 	            draggable: options.draggable || false
 	        };
 
@@ -1107,8 +1109,6 @@
 	                map: map,
 	                position: this.getPosition()
 	            }, point, options.label);
-	            console.log('zIndex: ' + options.index);
-	            this.zIndex = parseInt(options.index);
 	        }
 
 	        if (marker.draggable) {
