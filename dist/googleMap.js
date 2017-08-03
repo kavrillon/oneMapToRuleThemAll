@@ -297,7 +297,7 @@
 	                    options.activeCluster = _this3.options.activeCluster;
 	                }
 
-	                options.index = index + i;
+	                options.index = parseInt(index + i);
 
 	                points[i].options = options;
 
@@ -1090,7 +1090,6 @@
 	        var marker = {
 	            position: new google.maps.LatLng(point.latitude, point.longitude),
 	            map: map,
-	            zIndex: point.id,
 	            draggable: options.draggable || false
 	        };
 
@@ -1109,7 +1108,7 @@
 	                position: this.getPosition()
 	            }, point, options.label);
 	            console.log('zIndex: ' + options.index);
-	            this.zIndex = options.index;
+	            this.zIndex = parseInt(options.index);
 	        }
 
 	        if (marker.draggable) {
